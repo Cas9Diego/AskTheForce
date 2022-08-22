@@ -131,7 +131,12 @@ struct ResearchView: View {
                     }
                     }
                     } else {
-                        Text("Not found")
+                        Text("No info found")
+                            .font(.system(size: listFontSize, weight: .bold))
+                            .foregroundColor(.white)
+                            .multilineTextAlignment(.center)
+                            .shadow(color: .black, radius: 10)
+                            
                     }
                 }
             }
