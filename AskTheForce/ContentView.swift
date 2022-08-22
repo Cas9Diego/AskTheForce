@@ -81,6 +81,7 @@ struct ContentView: View {
                                 .padding(.leading, 16)
                                 .disableAutocorrection(true)
                             
+                            
                         }
                         if viewModel.userQuestion.isEmpty == false {
                             ZStack {
@@ -101,7 +102,7 @@ struct ContentView: View {
                                         .foregroundColor(.secondary)
                                 }
                             }
-                            .offset(x: UIScreen.main.bounds.width*0.30)
+                            .offset(x: UIScreen.main.bounds.width*0.27)
                             
                         }
                     }
