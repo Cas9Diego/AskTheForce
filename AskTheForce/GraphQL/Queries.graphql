@@ -1,147 +1,12 @@
 #  Queries
 
 query Query {
-  allFilms {
-    films {
-      title
-      director
-      releaseDate
-      speciesConnection {
-        species {
-          name
-          classification
-          homeworld {
-            name
-          }
-        }
-      }
-    }
-  }
   allPeople {
     people {
       birthYear
       created
       edited
       eyeColor
-      filmConnection {
-        edges {
-          cursor
-          node {
-            created
-            director
-            edited
-            episodeID
-            id
-            openingCrawl
-            producers
-            releaseDate
-            title
-          }
-        }
-        films {
-          characterConnection {
-            characters {
-              birthYear
-              created
-              edited
-              eyeColor
-              gender
-              hairColor
-              height
-              id
-              mass
-              name
-              skinColor
-            }
-            edges {
-              cursor
-            }
-            totalCount
-          }
-          created
-          director
-          edited
-          episodeID
-          id
-          openingCrawl
-          planetConnection {
-            edges {
-              cursor
-              node {
-                climates
-                created
-                diameter
-                edited
-                gravity
-                id
-                name
-                orbitalPeriod
-                population
-                rotationPeriod
-                surfaceWater
-                terrains
-              }
-            }
-            planets {
-              climates
-              created
-              diameter
-              edited
-              gravity
-              id
-              name
-              orbitalPeriod
-              population
-              rotationPeriod
-              surfaceWater
-              terrains
-            }
-            totalCount
-          }
-          producers
-          releaseDate
-          speciesConnection {
-            edges {
-              cursor
-              node {
-                averageHeight
-                averageLifespan
-                classification
-                created
-                designation
-                edited
-                eyeColors
-                hairColors
-                id
-                language
-                name
-                skinColors
-              }
-            }
-            totalCount
-          }
-          starshipConnection {
-            edges {
-              cursor
-            }
-            totalCount
-          }
-          title
-          vehicleConnection {
-            edges {
-              cursor
-            }
-            totalCount
-          }
-        }
-        pageInfo {
-          endCursor
-          hasNextPage
-          hasPreviousPage
-          startCursor
-        }
-        totalCount
-      }
       gender
       hairColor
       height
@@ -359,35 +224,10 @@ query Query {
       }
     }
   }
-  allPlanets {
-    planets {
-      climates
-      created
-      diameter
-      edited
-      gravity
-      id
-      name
-      orbitalPeriod
-      population
-      residentConnection {
-        edges {
-          cursor
-          node {
-            birthYear
-            created
-            edited
-            eyeColor
-            gender
-            hairColor
-            height
-            id
-            mass
-            name
-            skinColor
-          }
-        }
-        residents {
+  allFilms {
+    films {
+      characterConnection {
+        characters {
           birthYear
           created
           edited
@@ -419,45 +259,6 @@ query Query {
           mass
           name
           skinColor
-          species {
-            averageHeight
-            averageLifespan
-            classification
-            created
-            designation
-            edited
-            eyeColors
-            filmConnection {
-              edges {
-                cursor
-              }
-              totalCount
-            }
-            hairColors
-            id
-            language
-            name
-            personConnection {
-              edges {
-                cursor
-              }
-              people {
-                birthYear
-                created
-                edited
-                eyeColor
-                gender
-                hairColor
-                height
-                id
-                mass
-                name
-                skinColor
-              }
-              totalCount
-            }
-            skinColors
-          }
           starshipConnection {
             edges {
               cursor
@@ -471,66 +272,6 @@ query Query {
             totalCount
           }
         }
-        totalCount
-      }
-      rotationPeriod
-      surfaceWater
-      terrains
-    }
-  }
-  allSpecies {
-    species {
-      averageHeight
-      averageLifespan
-      classification
-      created
-      designation
-      edited
-      eyeColors
-      hairColors
-      homeworld {
-        climates
-        created
-        diameter
-        edited
-        filmConnection {
-          edges {
-            cursor
-          }
-          totalCount
-        }
-        gravity
-        id
-        name
-        orbitalPeriod
-        population
-        residentConnection {
-          edges {
-            cursor
-          }
-          residents {
-            birthYear
-            created
-            edited
-            eyeColor
-            gender
-            hairColor
-            height
-            id
-            mass
-            name
-            skinColor
-          }
-          totalCount
-        }
-        rotationPeriod
-        surfaceWater
-        terrains
-      }
-      id
-      language
-      name
-      personConnection {
         edges {
           cursor
           node {
@@ -547,121 +288,18 @@ query Query {
             skinColor
           }
         }
-        people {
-          birthYear
-          created
-          edited
-          eyeColor
-          filmConnection {
-            edges {
-              cursor
-            }
-            totalCount
-          }
-          gender
-          hairColor
-          height
-          id
-          mass
-          name
-          skinColor
-          species {
-            averageHeight
-            averageLifespan
-            classification
-            created
-            designation
-            edited
-            eyeColors
-            hairColors
-            id
-            language
-            name
-            skinColors
-          }
-          starshipConnection {
-            edges {
-              cursor
-            }
-            totalCount
-          }
-          vehicleConnection {
-            edges {
-              cursor
-            }
-            totalCount
-          }
-        }
         totalCount
       }
-      skinColors
-    }
-  }
-  person {
-    birthYear
-    created
-    edited
-    eyeColor
-    filmConnection {
-      edges {
-        cursor
-        node {
-          created
-          director
-          edited
-          episodeID
-          id
-          openingCrawl
-          producers
-          releaseDate
-          title
-        }
-      }
-      films {
-        characterConnection {
-          characters {
-            birthYear
-            created
-            edited
-            eyeColor
-            gender
-            hairColor
-            height
-            id
-            mass
-            name
-            skinColor
-          }
-          edges {
-            cursor
-          }
-          totalCount
-        }
-        created
-        director
-        edited
-        episodeID
-        id
-        openingCrawl
-        planetConnection {
-          edges {
-            cursor
-            node {
-              climates
-              created
-              diameter
-              edited
-              gravity
-              id
-              name
-              orbitalPeriod
-              population
-              rotationPeriod
-              surfaceWater
-              terrains
-            }
-          }
-          planets {
+      created
+      director
+      edited
+      episodeID
+      id
+      openingCrawl
+      planetConnection {
+        edges {
+          cursor
+          node {
             climates
             created
             diameter
@@ -675,29 +313,327 @@ query Query {
             surfaceWater
             terrains
           }
-          totalCount
         }
-        producers
-        releaseDate
-        speciesConnection {
+        planets {
+          climates
+          created
+          diameter
+          edited
+          filmConnection {
+            edges {
+              cursor
+            }
+            totalCount
+          }
+          gravity
+          id
+          name
+          orbitalPeriod
+          population
+          residentConnection {
+            edges {
+              cursor
+            }
+            residents {
+              birthYear
+              created
+              edited
+              eyeColor
+              gender
+              hairColor
+              height
+              id
+              mass
+              name
+              skinColor
+            }
+            totalCount
+          }
+          rotationPeriod
+          surfaceWater
+          terrains
+        }
+        totalCount
+      }
+      producers
+      releaseDate
+      speciesConnection {
+        edges {
+          cursor
+          node {
+            averageHeight
+            averageLifespan
+            classification
+            created
+            designation
+            edited
+            eyeColors
+            hairColors
+            id
+            language
+            name
+            skinColors
+          }
+        }
+        species {
+          averageHeight
+          averageLifespan
+          classification
+          created
+          designation
+          edited
+          eyeColors
+          filmConnection {
+            edges {
+              cursor
+            }
+            totalCount
+          }
+          hairColors
+          id
+          language
+          name
+          personConnection {
+            edges {
+              cursor
+            }
+            people {
+              birthYear
+              created
+              edited
+              eyeColor
+              gender
+              hairColor
+              height
+              id
+              mass
+              name
+              skinColor
+            }
+            totalCount
+          }
+          skinColors
+        }
+        totalCount
+      }
+      starshipConnection {
+        edges {
+          cursor
+          node {
+            MGLT
+            cargoCapacity
+            consumables
+            costInCredits
+            created
+            crew
+            edited
+            hyperdriveRating
+            id
+            length
+            manufacturers
+            maxAtmospheringSpeed
+            model
+            name
+            passengers
+            starshipClass
+          }
+        }
+        starships {
+          MGLT
+          cargoCapacity
+          consumables
+          costInCredits
+          created
+          crew
+          edited
+          filmConnection {
+            edges {
+              cursor
+            }
+            totalCount
+          }
+          hyperdriveRating
+          id
+          length
+          manufacturers
+          maxAtmospheringSpeed
+          model
+          name
+          passengers
+          pilotConnection {
+            edges {
+              cursor
+            }
+            pilots {
+              birthYear
+              created
+              edited
+              eyeColor
+              gender
+              hairColor
+              height
+              id
+              mass
+              name
+              skinColor
+            }
+            totalCount
+          }
+          starshipClass
+        }
+        totalCount
+      }
+      title
+      vehicleConnection {
+        edges {
+          cursor
+          node {
+            cargoCapacity
+            consumables
+            costInCredits
+            created
+            crew
+            edited
+            id
+            length
+            manufacturers
+            maxAtmospheringSpeed
+            model
+            name
+            passengers
+            vehicleClass
+          }
+        }
+        totalCount
+        vehicles {
+          cargoCapacity
+          consumables
+          costInCredits
+          created
+          crew
+          edited
+          filmConnection {
+            edges {
+              cursor
+            }
+            totalCount
+          }
+          id
+          length
+          manufacturers
+          maxAtmospheringSpeed
+          model
+          name
+          passengers
+          pilotConnection {
+            edges {
+              cursor
+            }
+            totalCount
+          }
+          vehicleClass
+        }
+      }
+    }
+    totalCount
+  }
+  planet {
+    climates
+    created
+    diameter
+    edited
+    gravity
+    id
+    name
+    orbitalPeriod
+    population
+    residentConnection {
+      edges {
+        cursor
+        node {
+          birthYear
+          created
+          edited
+          eyeColor
+          gender
+          hairColor
+          height
+          id
+          mass
+          name
+          skinColor
+        }
+      }
+      residents {
+        birthYear
+        created
+        edited
+        eyeColor
+        filmConnection {
           edges {
             cursor
-            node {
-              averageHeight
-              averageLifespan
-              classification
-              created
-              designation
-              edited
-              eyeColors
-              hairColors
-              id
-              language
-              name
-              skinColors
-            }
           }
           totalCount
+        }
+        gender
+        hairColor
+        height
+        homeworld {
+          climates
+          created
+          diameter
+          edited
+          gravity
+          id
+          name
+          orbitalPeriod
+          population
+          rotationPeriod
+          surfaceWater
+          terrains
+        }
+        id
+        mass
+        name
+        skinColor
+        species {
+          averageHeight
+          averageLifespan
+          classification
+          created
+          designation
+          edited
+          eyeColors
+          filmConnection {
+            edges {
+              cursor
+            }
+            totalCount
+          }
+          hairColors
+          id
+          language
+          name
+          personConnection {
+            edges {
+              cursor
+            }
+            people {
+              birthYear
+              created
+              edited
+              eyeColor
+              gender
+              hairColor
+              height
+              id
+              mass
+              name
+              skinColor
+            }
+            totalCount
+          }
+          skinColors
         }
         starshipConnection {
           edges {
@@ -705,7 +641,6 @@ query Query {
           }
           totalCount
         }
-        title
         vehicleConnection {
           edges {
             cursor
@@ -713,14 +648,17 @@ query Query {
           totalCount
         }
       }
-      pageInfo {
-        endCursor
-        hasNextPage
-        hasPreviousPage
-        startCursor
-      }
       totalCount
     }
+    rotationPeriod
+    surfaceWater
+    terrains
+  }
+  person {
+    birthYear
+    created
+    edited
+    eyeColor
     gender
     hairColor
     height
@@ -937,143 +875,12 @@ query Query {
       }
     }
   }
-  planet {
-    climates
-    created
-    diameter
-    edited
-    gravity
-    id
-    name
-    orbitalPeriod
-    population
-    residentConnection {
-      edges {
-        cursor
-        node {
-          birthYear
-          created
-          edited
-          eyeColor
-          gender
-          hairColor
-          height
-          id
-          mass
-          name
-          skinColor
-        }
-      }
-      residents {
-        birthYear
-        created
-        edited
-        eyeColor
-        filmConnection {
-          edges {
-            cursor
-          }
-          totalCount
-        }
-        gender
-        hairColor
-        height
-        homeworld {
-          climates
-          created
-          diameter
-          edited
-          gravity
-          id
-          name
-          orbitalPeriod
-          population
-          rotationPeriod
-          surfaceWater
-          terrains
-        }
-        id
-        mass
-        name
-        skinColor
-        species {
-          averageHeight
-          averageLifespan
-          classification
-          created
-          designation
-          edited
-          eyeColors
-          filmConnection {
-            edges {
-              cursor
-            }
-            totalCount
-          }
-          hairColors
-          id
-          language
-          name
-          personConnection {
-            edges {
-              cursor
-            }
-            people {
-              birthYear
-              created
-              edited
-              eyeColor
-              gender
-              hairColor
-              height
-              id
-              mass
-              name
-              skinColor
-            }
-            totalCount
-          }
-          skinColors
-        }
-        starshipConnection {
-          edges {
-            cursor
-          }
-          totalCount
-        }
-        vehicleConnection {
-          edges {
-            cursor
-          }
-          totalCount
-        }
-      }
-      totalCount
-    }
-    rotationPeriod
-    surfaceWater
-    terrains
-  }
-  species {
-    averageHeight
-    averageLifespan
-    classification
-    created
-    designation
-    edited
-    eyeColors
-    hairColors
-    homeworld {
+  allPlanets {
+    planets {
       climates
       created
       diameter
       edited
-      filmConnection {
-        edges {
-          cursor
-        }
-        totalCount
-      }
       gravity
       id
       name
@@ -1082,19 +889,103 @@ query Query {
       residentConnection {
         edges {
           cursor
+          node {
+            birthYear
+            created
+            edited
+            eyeColor
+            gender
+            hairColor
+            height
+            id
+            mass
+            name
+            skinColor
+          }
         }
         residents {
           birthYear
           created
           edited
           eyeColor
+          filmConnection {
+            edges {
+              cursor
+            }
+            totalCount
+          }
           gender
           hairColor
           height
+          homeworld {
+            climates
+            created
+            diameter
+            edited
+            gravity
+            id
+            name
+            orbitalPeriod
+            population
+            rotationPeriod
+            surfaceWater
+            terrains
+          }
           id
           mass
           name
           skinColor
+          species {
+            averageHeight
+            averageLifespan
+            classification
+            created
+            designation
+            edited
+            eyeColors
+            filmConnection {
+              edges {
+                cursor
+              }
+              totalCount
+            }
+            hairColors
+            id
+            language
+            name
+            personConnection {
+              edges {
+                cursor
+              }
+              people {
+                birthYear
+                created
+                edited
+                eyeColor
+                gender
+                hairColor
+                height
+                id
+                mass
+                name
+                skinColor
+              }
+              totalCount
+            }
+            skinColors
+          }
+          starshipConnection {
+            edges {
+              cursor
+            }
+            totalCount
+          }
+          vehicleConnection {
+            edges {
+              cursor
+            }
+            totalCount
+          }
         }
         totalCount
       }
@@ -1102,219 +993,5 @@ query Query {
       surfaceWater
       terrains
     }
-    id
-    language
-    name
-    personConnection {
-      edges {
-        cursor
-        node {
-          birthYear
-          created
-          edited
-          eyeColor
-          gender
-          hairColor
-          height
-          id
-          mass
-          name
-          skinColor
-        }
-      }
-      people {
-        birthYear
-        created
-        edited
-        eyeColor
-        filmConnection {
-          edges {
-            cursor
-          }
-          totalCount
-        }
-        gender
-        hairColor
-        height
-        id
-        mass
-        name
-        skinColor
-        species {
-          averageHeight
-          averageLifespan
-          classification
-          created
-          designation
-          edited
-          eyeColors
-          hairColors
-          id
-          language
-          name
-          skinColors
-        }
-        starshipConnection {
-          edges {
-            cursor
-          }
-          totalCount
-        }
-        vehicleConnection {
-          edges {
-            cursor
-          }
-          totalCount
-        }
-      }
-      totalCount
-    }
-    skinColors
-  }
-  starship {
-    MGLT
-    cargoCapacity
-    consumables
-    costInCredits
-    created
-    crew
-    edited
-    hyperdriveRating
-    id
-    length
-    manufacturers
-    maxAtmospheringSpeed
-    model
-    name
-    passengers
-    pilotConnection {
-      edges {
-        cursor
-        node {
-          birthYear
-          created
-          edited
-          eyeColor
-          gender
-          hairColor
-          height
-          id
-          mass
-          name
-          skinColor
-        }
-      }
-      pilots {
-        birthYear
-        created
-        edited
-        eyeColor
-        filmConnection {
-          edges {
-            cursor
-          }
-          totalCount
-        }
-        gender
-        hairColor
-        height
-        homeworld {
-          climates
-          created
-          diameter
-          edited
-          filmConnection {
-            edges {
-              cursor
-            }
-            totalCount
-          }
-          gravity
-          id
-          name
-          orbitalPeriod
-          population
-          residentConnection {
-            edges {
-              cursor
-            }
-            residents {
-              birthYear
-              created
-              edited
-              eyeColor
-              gender
-              hairColor
-              height
-              id
-              mass
-              name
-              skinColor
-            }
-            totalCount
-          }
-          rotationPeriod
-          surfaceWater
-          terrains
-        }
-        id
-        mass
-        name
-        skinColor
-        species {
-          averageHeight
-          averageLifespan
-          classification
-          created
-          designation
-          edited
-          eyeColors
-          filmConnection {
-            edges {
-              cursor
-            }
-            totalCount
-          }
-          hairColors
-          id
-          language
-          name
-          personConnection {
-            edges {
-              cursor
-            }
-            people {
-              birthYear
-              created
-              edited
-              eyeColor
-              gender
-              hairColor
-              height
-              id
-              mass
-              name
-              skinColor
-            }
-            totalCount
-          }
-          skinColors
-        }
-        starshipConnection {
-          edges {
-            cursor
-          }
-          totalCount
-        }
-        vehicleConnection {
-          edges {
-            cursor
-          }
-          totalCount
-        }
-      }
-      totalCount
-    }
-    starshipClass
   }
 }

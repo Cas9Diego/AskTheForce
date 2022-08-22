@@ -8,20 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var viewModel = ViewModel()
-    private var numbersArray = Array(0...20)
+    @StateObject private var viewModel = ContentViewViewModel()
+    private var numbersArray = Array(0...50)
+    let options = ["Characters","Films", "Planets"]
     
     
     func createNameLabels (index: Int) -> some View{
         
-        fetchData(index: index)
-        print(index, "The index")
-        return
-            
-            Text("\(viewModel.currentLabel[index])")
-                .foregroundColor(.white)
-                .font(.largeTitle)
-            
+        return Text("\(viewModel.currentLabel[index])")
+            .foregroundColor(.white.opacity(0.5))
+            .font(.system(size: 90, weight: .heavy))
+            .shadow(color: .black, radius: 10)
         
     }
     
@@ -36,23 +33,41 @@ struct ContentView: View {
                     .shadow(color: .black, radius: 10)
                     .foregroundColor(Color(uiColor: .black))
                     .offset(y:0)
-                
-                
-                ZStack {
-                    ForEach((0..<8), id: \.self) { index in
-                        if viewModel.currentLabel[7] == "" {
-                        createNameLabels(index: index)
-                            .offset(x: CGFloat(Int.random(in: -Int(UIScreen.main.bounds.width)...Int(UIScreen.main.bounds.width))), y: CGFloat(Int.random(in: -Int(UIScreen.main.bounds.height)...Int(UIScreen.main.bounds.height))))
-                        }
+                    .task {
+                    await viewModel.fetchData()
                     }
-                }
-     
+                
+                
+  
+                    ForEach((0..<8), id: \.self) { index in
+                        ZStack {
+                        createNameLabels(index: index)
+                        
+                        //                        The labels change their offset when somethingis wroten in the TextField because writing updates the interface, so a new random number is gotten
+                        }
+                        .offset(x: CGFloat (Int.random(in: -Int(UIScreen.main.bounds.width)/2...Int(UIScreen.main.bounds.width/2))), y: CGFloat(100*index))
+                        
+                    }
+                
+                
                 
                 
                 VStack {
                     Text ("The Star Wars Guide")
-                        .font(.largeTitle)
+                        .multilineTextAlignment(.center)
+                        .font(.system(size: 60, weight: .heavy))
+                        .foregroundColor(Color(0xF9D71C))
+                    
+                    Text ("You are searching for")
                         .foregroundColor(.white)
+                    
+                    Picker("You are searching for", selection: $viewModel.fieldOfSearch) {
+                                ForEach(options, id: \.self) {
+                                    Text($0)
+                                }
+                    }.accentColor(Color(0xF9D71C))
+                        .pickerStyle(.menu)
+                    
                     ZStack{
                         ZStack(alignment: .topLeading) {
                             RoundedRectangle(cornerRadius: 20, style: .continuous)
@@ -64,12 +79,13 @@ struct ContentView: View {
                             //                    .textFieldStyle(.plain)
                                 .padding()
                                 .padding(.leading, 16)
+                                .disableAutocorrection(true)
                             
                         }
                         if viewModel.userQuestion.isEmpty == false {
                             ZStack {
-                                Button {
-                                    //More code to come regardong the research function
+                                NavigationLink {
+                                    ResearchView(viewModel: viewModel)
                                 } label: {
                                     Image(systemName: "magnifyingglass")
                                         .foregroundColor(.secondary)
@@ -77,39 +93,27 @@ struct ContentView: View {
                             }
                             .offset(x: UIScreen.main.bounds.width*0.37)
                             
+                            ZStack {
+                                Button {
+                                    viewModel.userQuestion = ""
+                                } label: {
+                                    Image(systemName: "x.circle.fill")
+                                        .foregroundColor(.secondary)
+                                }
+                            }
+                            .offset(x: UIScreen.main.bounds.width*0.30)
+                            
                         }
                     }
                     
-                    Spacer()
                     
                 }
-                .ignoresSafeArea()
-                .padding()
+                
+                .offset(y: -UIScreen.main.bounds.height*0.35)
             }
         }
     }
     
-    func fetchData (index: Int) {
-        Network.shared.apollo.fetch(query: QueryQuery()) { result in
-            
-            let arrayNumber = numbersArray.randomElement() ?? 0
-            
-            switch result {
-            case .success( let graphlQLResult):
-                DispatchQueue.main.async {
-                    
-                    if let starWarsNames = graphlQLResult.data?.allPeople?.people![arrayNumber]?.name {
-                        self.viewModel.currentLabel[index] = starWarsNames
-                        
-                    }
-                }
-            case .failure(let error):
-                print ("Error \(error.localizedDescription)")
-            }
-            
-        }
-        
-    }
 }
 
 struct ContentView_Previews: PreviewProvider {
