@@ -82,6 +82,7 @@ struct ContentView: View {
                                 .disableAutocorrection(true)
                             
                             
+                            
                         }
                         if viewModel.userQuestion.isEmpty == false {
                             ZStack {
