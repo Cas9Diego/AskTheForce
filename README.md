@@ -9,15 +9,15 @@ Requirements:
 To run the iOS project, you must use Xcode 13.3 or later.
 
 Frameworks: 
-SwiftUI 
-Apollo 
+SwiftUI,
+Apollo, 
 Foundation 
 
 Dependencies 
 The project is based on the apollo-ios dependency (available here ---> https://github.com/apollographql/apollo-ios.git), which is necesary in order to be able 
 to import the Apollo framework. 
 
-<<<<THIS IS AN UNFINISHED PROJECT>>>>
+THIS IS AN UNFINISHED PROJECT
 
 After running the App, you should see the following screen. Make sure to have an internet connection before running the app. 
 
