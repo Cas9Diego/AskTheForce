@@ -20,4 +20,6 @@ to import the Apollo framework.
 <<<<THIS IS AN UNFINISHED PROJECT>>>>
 
 After running the App, you should see the following screen. Make sure to have an internet connection before running the app. 
+
+
 ![AskTheForce](https://user-images.githubusercontent.com/99818957/186065459-7a9a12f8-6db7-4517-8ea2-9d6fbf7ae772.png)
